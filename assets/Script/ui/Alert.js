@@ -33,10 +33,13 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        this.node.on('click',()=>{
-            this.window.active = true;
-        })
+    // onLoad () {
+    //     this.node.on('click',()=>{
+    //         this.window.active = true;
+    //     })
+    // },
+    onClick(){
+        this.window.active = true;
     },
 
     start () {

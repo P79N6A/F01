@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.19840444320281728,
-      "y": 0.19840444320281728,
+      "x": 0.1425689170869016,
+      "y": 0.1425689170869016,
       "z": 1
     },
     "_quat": {
@@ -301,7 +301,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 5,
+      "width": 100,
       "height": 40
     },
     "_anchorPoint": {
@@ -317,8 +317,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 5,
+      "y": 5,
       "z": 1
     },
     "_rotationX": 0,
@@ -361,14 +361,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 183,
-      "g": 113,
-      "b": 113,
+      "r": 255,
+      "g": 97,
+      "b": 0,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 5,
+      "width": 100,
       "height": 40
     },
     "_anchorPoint": {
@@ -421,9 +421,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
@@ -471,9 +471,9 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "button",
-    "_N$string": "button",
-    "_fontSize": 20,
+    "_string": "666",
+    "_N$string": "666",
+    "_fontSize": 30,
     "_lineHeight": 40,
     "_enableWrapText": false,
     "_N$file": null,
@@ -665,14 +665,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 6,
-      "y": -196,
+      "x": -1,
+      "y": -285,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 5,
+      "y": 5,
       "z": 1
     },
     "_rotationX": 0,
@@ -715,9 +715,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 230,
-      "g": 230,
-      "b": 230,
+      "r": 255,
+      "g": 255,
+      "b": 255,
       "a": 255
     },
     "_contentSize": {
