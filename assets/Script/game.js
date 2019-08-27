@@ -59,6 +59,7 @@
 //         return cc.v2(randX, randY);
 //     }
 // });
+const local_data = require("localDataLoader");
 
 cc.Class({
   extends: cc.Component,
@@ -81,7 +82,8 @@ cc.Class({
     player: {
       default: null,
       type: cc.Node
-    }
+    },
+    key_words_cnt: 100
   },
 
   onLoad: function() {
@@ -112,5 +114,12 @@ cc.Class({
     randX = (Math.random() - 0.5) * 2 * maxX;
     // 返回星星坐标
     return cc.v2(randX, randY);
+  },
+
+  getLocalData: function(index){
+    var key_words = local_data.getKeywords(index);
+    key_words_len = Math.min(this.key_words_cnt, key_words.length);
+    return key_words.slice(0,key_words_len)
   }
+  
 });
