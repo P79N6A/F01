@@ -35,7 +35,7 @@ cc.Class({
     //console.log(123);
     this.node.on("click", () => {
       console.log("clicked");
-      cc.director.loadScene("gameScene");
+      cc.director.loadScene("testScene");
     });
   },
 

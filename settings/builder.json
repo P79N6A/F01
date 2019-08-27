@@ -15,7 +15,10 @@
     "subContext": ""
   },
   "encryptJs": true,
-  "excludeScenes": [],
+  "excludeScenes": [
+    "1b86b481-bdbf-4979-83a9-fc7788b9a089",
+    "2383f15e-1064-402c-8acd-2b8616432ae2"
+  ],
   "fb-instant-games": {},
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
@@ -40,7 +43,7 @@
   "webOrientation": "auto",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
-    "appid": "wx6ac3f5090a6b99c5",
+    "appid": "ttf3be85036c947f48",
     "orientation": "portrait",
     "subContext": ""
   },
