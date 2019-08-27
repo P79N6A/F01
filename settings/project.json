@@ -29,12 +29,13 @@
     "default",
     "star"
   ],
-  "last-module-event-record-time": 0,
+  "last-module-event-record-time": 1566901135895,
   "simulator-orientation": false,
   "simulator-resolution": {
     "height": 640,
     "width": 960
   },
   "use-customize-simulator": true,
-  "use-project-simulator-setting": false
+  "use-project-simulator-setting": false,
+  "start-scene": "current"
 }

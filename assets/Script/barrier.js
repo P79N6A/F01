@@ -3,11 +3,12 @@ cc.Class({
 
   properties: {
     // 障碍物和玩家之间的距离小于这个数值时，就会完成收集
-    pickRadius: 60
+    pickRadius: 60,
+    keyWordLabel: cc.Label,
   },
   // this.node.y = this.node.y
 
-  start: function () { },
+  start: function() {},
 
   // getPlayerDistance: function () {
   //   console.log(this.player);
@@ -18,7 +19,11 @@ cc.Class({
   //   return dist;
   // },
 
-  onPicked: function () {
+  setKeyWord: function(keyword) {
+    this.keyWordLabel.string = keyword;
+  },
+
+  onPicked: function() {
     // 然后销毁当前障碍物
     this.node.destroy();
 
@@ -28,12 +33,12 @@ cc.Class({
     cc.director.emit("StarPick");
   },
 
-  onCollisionEnter: function () {
+  onCollisionEnter: function() {
     this.onPicked();
   },
 
-  update: function (dt) {
-    this.node.x -= 2;
+  update: function(dt) {
+    this.node.x -= 5;
     if (this.node.x < -400) {
       this.node.x = 400;
     }
@@ -49,5 +54,5 @@ cc.Class({
     // var minOpacity = 50;
     // this.node.opacity =
     //   minOpacity + Math.floor(opacityRatio * (255 - minOpacity));
-  }
+  },
 });

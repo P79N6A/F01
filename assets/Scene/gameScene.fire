@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.39644630809595205,
-      "y": 0.39644630809595205,
+      "x": 0.1859538980509745,
+      "y": 0.1859538980509745,
       "z": 1
     },
     "_quat": {
@@ -435,8 +435,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -244,
-      "y": -361,
+      "x": -239,
+      "y": -364,
       "z": 0
     },
     "_scale": {
@@ -520,7 +520,7 @@
       "width": 119,
       "height": 115
     },
-    "_id": "a6gOcbFV1NGaJUSD7Eh4+b"
+    "_id": "19t343KY1BcYVRltHiE+pL"
   },
   {
     "__type__": "cc.Node",
@@ -663,6 +663,7 @@
     "player": {
       "__id__": 9
     },
+    "key_words_cnt": 100,
     "_id": "d5sDq4OqRGwrQFivUPvOIk"
   }
 ]
