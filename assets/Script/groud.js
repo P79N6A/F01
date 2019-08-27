@@ -1,38 +1,30 @@
-// Learn cc.Class:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
 cc.Class({
     extends: cc.Component,
 
-    // properties: {
-    //     // foo: {
-    //     //     // ATTRIBUTES:
-    //     //     default: null,        // The default value will be used only when the component attaching
-    //     //                           // to a node for the first time
-    //     //     type: cc.SpriteFrame, // optional, default is typeof default
-    //     //     serializable: true,   // optional, default is true
-    //     // },
-    //     // bar: {
-    //     //     get () {
-    //     //         return this._bar;
-    //     //     },
-    //     //     set (value) {
-    //     //         this._bar = value;
-    //     //     }
-    //     // },
-    // },
+    properties: {
+        // foo: {
+        //     // ATTRIBUTES:
+        //     default: null,        // The default value will be used only when the component attaching
+        //                           // to a node for the first time
+        //     type: cc.SpriteFrame, // optional, default is typeof default
+        //     serializable: true,   // optional, default is true
+        // },
+        // bar: {
+        //     get () {
+        //         return this._bar;
+        //     },
+        //     set (value) {
+        //         this._bar = value;
+        //     }
+        // },
+    },
+
+    // LIFE-CYCLE CALLBACKS:
 
     properties: {
-        // 主角跳跃高度
-        jumpHeight: 200,
-        // 主角跳跃持续时间
+        // 移动宽度
+        jumpWidth: 200,
+        // 移动持续时间
         jumpDuration: 0.3,
         // 最大移动速度
         maxMoveSpeed: 400,
@@ -41,20 +33,30 @@ cc.Class({
     },
 
     setJumpAction: function () {
-        // 跳跃上升
-        var jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());
-        // 下落
-        var jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());
+        // 右移
+        var moveRight = cc.moveBy(this.jumpDuration, cc.v2(this.jumpWidth,0)).easing(cc.easeCubicActionOut());
+        
         // 不断重复
-        return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
+        return cc.repeatForever(moveRight);
+    },
+
+    setJumpAct1:function(){
+        // 左移 
+        //var moveLeft = cc.moveBy(this.jumpDuration, cc.v2(-this.jumpWidth,0)).easing(cc.easeCubicActionIn());
+        var rotate = cc.rotateBy(2, 360);
+
+        // 不断重复
+        return cc.repeatForever(rotate);
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
-        // 初始化跳跃动作
-        this.jumpAction = this.setJumpAction();
-        this.node.runAction(this.jumpAction);
+        // 初始化状态
+        // this.jumpAction = this.setJumpAction();
+        // this.node.runAction(this.jumpAction);
+        this.moveAction = this.setJumpAct1();
+        this.node.runAction(this.moveAction)
     },
 
     start () {
