@@ -962,9 +962,6 @@
     "_components": [
       {
         "__id__": 27
-      },
-      {
-        "__id__": 28
       }
     ],
     "_prefab": null,
@@ -1229,7 +1226,11 @@
     "_enabled": true,
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 28
+      }
+    ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$transition": 2,
@@ -1300,14 +1301,14 @@
     "_id": "fa2JXLCJdL+7JZG5gwaiH+"
   },
   {
-    "__type__": "9f47fFFhCZPtpjUwM+J/HCd",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
+    "__type__": "cc.ClickEvent",
+    "target": {
       "__id__": 21
     },
-    "_enabled": true,
-    "_id": "311pqCDfxCGb2GXTuPWsE8"
+    "component": "",
+    "_componentId": "9f47fFFhCZPtpjUwM+J/HCd",
+    "handler": "onMenuTap",
+    "customEventData": "0"
   },
   {
     "__type__": "cc.Node",
