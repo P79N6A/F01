@@ -51,9 +51,9 @@ cc.Class({
         return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
     },
 
-    onKeyDown (event) {
+    onKeyDown(event) {
         // set a flag when key pressed
-        switch(event.keyCode) {
+        switch (event.keyCode) {
             case cc.macro.KEY.a:
                 this.accLeft = true;
                 break;
@@ -63,9 +63,9 @@ cc.Class({
         }
     },
 
-    onKeyUp (event) {
+    onKeyUp(event) {
         // unset a flag when key released
-        switch(event.keyCode) {
+        switch (event.keyCode) {
             case cc.macro.KEY.a:
                 this.accLeft = false;
                 break;
@@ -90,21 +90,21 @@ cc.Class({
 
         // 初始化键盘输入监听
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this); 
-        console.log(this.accLeft); 
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
+        console.log(this.accLeft);
     },
 
-    onDestroy () {
+    onDestroy() {
         // 取消键盘输入监听
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
         cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
     },
 
-    getPosition: function(){
-        return cc.v2(his.node.x,this.node.y);
+    getPosition: function () {
+        return cc.v2(his.node.x, this.node.y);
     },
 
-    start () {
+    start() {
 
     },
 
@@ -116,7 +116,7 @@ cc.Class({
             this.node.y -= 30;
         }
         // 限制主角的速度不能超过最大值
-        if ( Math.abs(this.xSpeed) > this.maxMoveSpeed ) {
+        if (Math.abs(this.xSpeed) > this.maxMoveSpeed) {
             // if speed reach limit, use max speed with current direction
             this.ySpeed = this.maxMoveSpeed * this.ySpeed / Math.abs(this.ySpeed);
         }
