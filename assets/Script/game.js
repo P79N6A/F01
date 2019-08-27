@@ -1,13 +1,3 @@
-// Learn cc.Class:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://docs.cocos2d-x.org/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-
 // cc.Class({
 //     extends: cc.Component,
 
@@ -84,32 +74,43 @@ cc.Class({
     }
   },
 
-  onLoad: function() {
+  onLoad: function () {
     // 获取地平面的 y 轴坐标
     this.groundY = 0;
-    // 生成一个新的星星
-    this.spawnNewStar();
+
+    cc.director.on("StarPick", () => {
+      // 当障碍物被收集时，调用 Game 脚本中的接口，生成一个新的障碍物
+      // console.log(123);
+      this.spawnNewStar();
+      // // 调用 Game 脚本的得分方法
+      // this.gainScore();
+    })
   },
 
-  spawnNewStar: function() {
+  start: function () {
+    // 生成一个新的星星
+    this.spawnNewStar();
+    var manager = cc.director.getCollisionManager();
+    manager.enabled = true;
+    manager.enabledDebugDraw = true;
+  },
+
+  spawnNewStar: function () {
     // 使用给定的模板在场景中生成一个新节点
     var newStar = cc.instantiate(this.starPrefab);
-
     // 将新增的节点添加到 Canvas 节点下面
     this.node.addChild(newStar);
-    newStar.getComponent("barrier").setGameInst(this);
     // 为星星设置一个随机位置
     newStar.setPosition(this.getNewStarPosition());
   },
 
-  getNewStarPosition: function() {
-    var randX = 0;
+  getNewStarPosition: function () {
     // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
     // var randY = this.groundY + Math.random() * this.player.getComponent('Player').jumpHeight + 50;
     var randY = this.groundY + Math.random() * 200 + 50;
     // 根据屏幕宽度，随机得到一个星星 x 坐标
     var maxX = this.node.width / 2;
-    randX = (Math.random() - 0.5) * 2 * maxX;
+    var randX = 400;
     // 返回星星坐标
     return cc.v2(randX, randY);
   }
