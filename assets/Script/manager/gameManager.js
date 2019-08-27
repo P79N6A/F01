@@ -5,6 +5,7 @@ class GameManager {
 
     setCurrentTopic(index) {
         this.topicIndex = index;
+        //console.log(this.topicIndex);
     }
 }
 
