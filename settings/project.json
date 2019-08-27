@@ -8,12 +8,7 @@
   "group-list": [
     "default"
   ],
-  "start-scene": "current",
-  "design-resolution-width": 960,
-  "design-resolution-height": 640,
-  "fit-width": false,
-  "fit-height": true,
-  "use-project-simulator-setting": false,
+  "last-module-event-record-time": 1566901135895,
   "simulator-orientation": false,
   "use-customize-simulator": false,
   "simulator-resolution": {
