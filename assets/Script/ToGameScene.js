@@ -27,10 +27,11 @@ cc.Class({
     //console.log(123);
     this.node.on("click", () => {
       console.log("clicked");
-      
+
       gameManager.setCurrentTopic(1);
       console.log(gameManager.topicIndex);
     });
 
-  // update (dt) {},
-});
+    // update (dt) {},
+  }
+})
