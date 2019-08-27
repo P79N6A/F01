@@ -1,35 +1,36 @@
 {
-  "assets-sort-type": "name",
   "collision-matrix": [
     [
       true
     ]
   ],
-  "design-resolution-height": 1134,
-  "design-resolution-width": 750,
   "excluded-modules": [],
-  "facebook": {
-    "appID": "",
-    "audience": {
-      "enable": false
-    },
-    "enable": false,
-    "live": {
-      "enable": false
-    }
-  },
-  "fit-height": true,
-  "fit-width": false,
   "group-list": [
     "default"
   ],
   "last-module-event-record-time": 1566901135895,
   "simulator-orientation": false,
+  "use-customize-simulator": false,
   "simulator-resolution": {
-    "height": 640,
-    "width": 960
+    "width": 960,
+    "height": 640
   },
+<<<<<<< HEAD
   "use-customize-simulator": true,
   "use-project-simulator-setting": false,
   "start-scene": "current"
+=======
+  "last-module-event-record-time": 0,
+  "assets-sort-type": "ext",
+  "facebook": {
+    "enable": false,
+    "appID": "",
+    "live": {
+      "enable": false
+    },
+    "audience": {
+      "enable": false
+    }
+  }
+>>>>>>> 9563b57f7c262ecda32feb7375c04ed37e503c85
 }
