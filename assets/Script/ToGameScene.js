@@ -27,14 +27,10 @@ cc.Class({
     //console.log(123);
     this.node.on("click", () => {
       console.log("clicked");
-      cc.director.loadScene("gameScene");
       
       gameManager.setCurrentTopic(1);
       console.log(gameManager.topicIndex);
     });
-  },
-
-  start() {}
 
   // update (dt) {},
 });
