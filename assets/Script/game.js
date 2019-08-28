@@ -77,11 +77,15 @@ cc.Class({
     key_words_cnt: 100,
   },
 
-  onLoad: function() {
+  onLoad: function () {
     // 获取地平面的 y 轴坐标
     this.groundY = 0;
 
-    cc.director.on("StarPick", () => {
+    cc.director.on("StarPick", (keyWord) => {
+      if (typeof this.keyWords === "undefined") {
+        this.keyWords = [];
+      }
+      this.keyWords.push(keyWord);
       // 当障碍物被收集时，调用 Game 脚本中的接口，生成一个新的障碍物
       // console.log(123);
       this.spawnNewStar();
@@ -90,7 +94,7 @@ cc.Class({
     });
   },
 
-  start: function() {
+  start: function () {
     // 生成一个新的星星
     this.spawnNewStar();
     var manager = cc.director.getCollisionManager();
@@ -98,7 +102,7 @@ cc.Class({
     manager.enabledDebugDraw = true;
   },
 
-  spawnNewStar: function() {
+  spawnNewStar: function () {
     // 使用给定的模板在场景中生成一个新节点
     var newStar = cc.instantiate(this.starPrefab);
     newStar
@@ -110,7 +114,7 @@ cc.Class({
     newStar.setPosition(this.getNewStarPosition());
   },
 
-  getNewStarPosition: function() {
+  getNewStarPosition: function () {
     // 根据地平面位置和主角跳跃高度，随机得到一个星星的 y 坐标
     // var randY = this.groundY + Math.random() * this.player.getComponent('Player').jumpHeight + 50;
     var randY = this.groundY + Math.random() * 200 + 50;
@@ -121,7 +125,7 @@ cc.Class({
     return cc.v2(randX, randY);
   },
 
-  getLocalData: function(index) {
+  getLocalData: function (index) {
     var key_words = local_data.getKeywords(index);
     var key_words_idx = Math.floor(Math.random() * key_words.length);
     // key_words_len = Math.min(this.key_words_cnt, key_words.length);
