@@ -15,10 +15,7 @@
     "subContext": ""
   },
   "encryptJs": true,
-  "excludeScenes": [
-    "1b86b481-bdbf-4979-83a9-fc7788b9a089",
-    "2383f15e-1064-402c-8acd-2b8616432ae2"
-  ],
+  "excludeScenes": [],
   "fb-instant-games": {},
   "includeSDKBox": false,
   "inlineSpriteFrames": true,

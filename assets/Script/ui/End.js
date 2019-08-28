@@ -1,20 +1,18 @@
+
 cc.Class({
     extends: cc.Component,
 
     properties: {
 
+        score:cc.Label,
+        
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-     onLoad () {
-         this.node.on('click',()=>{
-             cc.director.loadScene("endScene");
-
-         });
-         
-     },
-    
+    onLoad () {
+        //score.string=
+    },
 
     start () {
 
