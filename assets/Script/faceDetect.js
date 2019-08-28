@@ -77,19 +77,36 @@ cc.Class({
               }
             }
 
+            var eye1_x = landmarks[3].locations[8].x * scalar;
+            var eye1_y = landmarks[3].locations[8].y * scalar;
+            var eye2_x = landmarks[4].locations[8].x * scalar;
+            var eye2_y = landmarks[4].locations[8].y * scalar;
+            
+            var curdoty = (eye1_y + eye2_y) / 2;
+
             //var eye1_index = landmarks[3].locations.length - 1;
             //var eye2_index = landmarks[4].locations.length - 1;
 
-            var curdoty =
-              (landmarks[3].locations[8].y * scalar +
-                landmarks[4].locations[8].y * scalar) /
-              2;
+
+            
+            // var curdoty =
+            //   (landmarks[3].locations[8].y * scalar +
+            //     landmarks[4].locations[8].y * scalar) /
+            //   2;
+
+            //鼻子备用
             //var curdoty = landmarks[5].locations[3].y * scalar;
 
             if (flag === 0) {
               var dis = curdoty - lastdoty;
               cc.director.emit("FaceMove", dis);
             }
+
+            cc.director.emit("EYE1_x",eye1_x);
+            cc.director.emit("EYE1_y",eye1_y);
+            cc.director.emit("EYE2_x",eye2_x);
+            cc.director.emit("EYE2_y",eye2_y);
+            
 
             lastdoty = curdoty;
             flag = 0;
