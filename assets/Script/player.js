@@ -51,29 +51,29 @@ cc.Class({
         return cc.repeatForever(cc.sequence(jumpUp, jumpDown));
     },
 
-    onKeyDown(event) {
-        // set a flag when key pressed
-        switch (event.keyCode) {
-            case cc.macro.KEY.a:
-                this.accLeft = true;
-                break;
-            case cc.macro.KEY.d:
-                this.accRight = true;
-                break;
-        }
-    },
+    // onKeyDown(event) {
+    //     // set a flag when key pressed
+    //     switch (event.keyCode) {
+    //         case cc.macro.KEY.a:
+    //             this.accLeft = true;
+    //             break;
+    //         case cc.macro.KEY.d:
+    //             this.accRight = true;
+    //             break;
+    //     }
+    // },
 
-    onKeyUp(event) {
-        // unset a flag when key released
-        switch (event.keyCode) {
-            case cc.macro.KEY.a:
-                this.accLeft = false;
-                break;
-            case cc.macro.KEY.d:
-                this.accRight = false;
-                break;
-        }
-    },
+    // onKeyUp(event) {
+    //     // unset a flag when key released
+    //     switch (event.keyCode) {
+    //         case cc.macro.KEY.a:
+    //             this.accLeft = false;
+    //             break;
+    //         case cc.macro.KEY.d:
+    //             this.accRight = false;
+    //             break;
+    //     }
+    // },
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -83,21 +83,25 @@ cc.Class({
         this.node.runAction(this.jumpAction);
 
         // 加速度方向开关
-        this.accLeft = false;
-        this.accRight = false;
+        // this.accLeft = false;
+        // this.accRight = false;
         // 主角当前水平方向速度
-        this.node.y = 0;
+        // this.node.y = 0;
 
         // 初始化键盘输入监听
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
-        console.log(this.accLeft);
+        // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
+        // console.log(this.accLeft);
     },
 
     onDestroy() {
         // 取消键盘输入监听
-        cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-        cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
+        // cc.systemEvent.off(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+        // cc.systemEvent.off(cc.SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
+    },
+
+    addY: function (deltaY) {
+        this.node.y -= deltaY * 5;
     },
 
     getPosition: function () {
@@ -105,16 +109,18 @@ cc.Class({
     },
 
     start() {
-
+        cc.director.on("FaceMove", (dis) => {
+            this.addY(dis);
+        })
     },
 
     update: function (dt) {
         // 根据当前加速度方向每帧更新速度
-        if (this.accLeft) {
-            this.node.y += 30;
-        } else if (this.accRight) {
-            this.node.y -= 30;
-        }
+        // if (this.accLeft) {
+        //     this.node.y += 30;
+        // } else if (this.accRight) {
+        //     this.node.y -= 30;
+        // }
         // 限制主角的速度不能超过最大值
         if (Math.abs(this.xSpeed) > this.maxMoveSpeed) {
             // if speed reach limit, use max speed with current direction

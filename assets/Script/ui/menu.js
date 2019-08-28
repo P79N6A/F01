@@ -7,7 +7,7 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] https://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
-import { localData } from "../localData";
+const localDataLoader = require("dataLoader");
 
 cc.Class({
   extends: cc.Component,
@@ -35,13 +35,12 @@ cc.Class({
   // LIFE-CYCLE CALLBACKS:
 
   onLoad() {
-     this.btn1.string = localData[0].title;
-    console.log(localData);
-     this.btn2.string = localData[1].title;
+    this.btn1.string = localDataLoader.getTitle(0);
+    this.btn2.string = localDataLoader.getTitle(1);
   },
 
-  start() {},
+  start() { },
 
-  onMenuTap(a, customdata) {}
+  onMenuTap(a, customdata) { }
   // update (dt) {},
 });
