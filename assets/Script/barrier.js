@@ -1,3 +1,5 @@
+const globalVar = require("globalVar");
+
 cc.Class({
   extends: cc.Component,
 
@@ -25,6 +27,7 @@ cc.Class({
 
   onPicked: function() {
     // 然后销毁当前障碍物
+    
     this.node.destroy();
 
     var manager = cc.director.getCollisionManager();

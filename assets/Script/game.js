@@ -91,6 +91,7 @@ cc.Class({
   },
 
   start: function() {
+    window.a = this;
     // 生成一个新的星星
     this.spawnNewStar();
     var manager = cc.director.getCollisionManager();
@@ -126,5 +127,54 @@ cc.Class({
     var key_words_idx = Math.floor(Math.random() * key_words.length);
     // key_words_len = Math.min(this.key_words_cnt, key_words.length);
     return key_words[key_words_idx];
+  },
+
+  generateSentence: function(index, key_words, use_random) {
+    if (use_random) {
+      var res_sentence = this.generateRandomSentence(index, key_words);
+    } else {
+      var res_sentence = this.generateMatchSentence(index, key_words);
+    }
+    return res_sentence;
+  },
+
+  generateRandomSentence: function(index, key_words) {
+    sentences = local_data.getCorpus(index);
+    sentence_idx = Math.floor(Math.random() * sentences.length);
+    return sentences[sentence_idx];
+  },
+
+  generateMatchSentence: function(index, key_words) {
+    sentences = local_data.getCorpus(index);
+    var max_len = 0;
+    var most_matched;
+    for (i = 0, len = sentences.length; i < len; i++) {
+      jieba.cut(sentences[i], function(ret) {
+        var cur = ret;
+        let intersection = cur.filter((v) => sentences[i].includes(v));
+        console.log(intersection);
+        if (intersection.length > max_len) {
+          max_len = intersection.length;
+          most_matched = intersection;
+        }
+      });
+    }
+  },
+
+  generateMatchSentence: function(index, key_words) {
+    sentences = local_data.getCorpus(index);
+    var max_len = 0;
+    var most_matched;
+    for (i = 0, len = sentences.length; i < len; i++) {
+      cur_len = this.match(key_words, sentences[i]);
+      if (cur_len > max_len) {
+        max_len = cur_len;
+        most_matched = sentences[i];
+      }
+    }
+  },
+
+  match: function(key_words, sentence) {
+    var cur_len = 0;
   },
 });
