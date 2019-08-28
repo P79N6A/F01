@@ -49,6 +49,7 @@
 //         return cc.v2(randX, randY);
 //     }
 // });
+import { Segment, useDefault } from 'segmentit';
 const gameManager = require("gameManager");
 const local_data = require("dataLoader");
 
@@ -95,6 +96,9 @@ cc.Class({
   },
 
   start: function () {
+    const segmentit = useDefault(new Segment());
+    const result = segmentit.doSegment('工信处女干事每月经过下属科室都要亲口交代24口交换机等技术性器件的安装工作。');
+    console.log(result);
     // 生成一个新的星星
     this.spawnNewStar();
     var manager = cc.director.getCollisionManager();
