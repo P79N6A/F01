@@ -1,0 +1,11 @@
+{
+  "name": "F01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:bytecamp-2019-microgame/F01.git",
+  "author": "zhanghao <devilsparta@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "segmentit": "^2.0.2"
+  }
+}

@@ -10,7 +10,7 @@ cc.Class({
   },
   // this.node.y = this.node.y
 
-  start: function() {},
+  start: function () { },
 
   // getPlayerDistance: function () {
   //   console.log(this.player);
@@ -21,11 +21,11 @@ cc.Class({
   //   return dist;
   // },
 
-  setKeyWord: function(keyword) {
+  setKeyWord: function (keyword) {
     this.keyWordLabel.string = keyword;
   },
 
-  onPicked: function() {
+  onPicked: function () {
     // 然后销毁当前障碍物
     
     this.node.destroy();
@@ -33,14 +33,14 @@ cc.Class({
     var manager = cc.director.getCollisionManager();
     manager.enabled = true;
 
-    cc.director.emit("StarPick");
+    cc.director.emit("StarPick", this.keyWordLabel.string);
   },
 
-  onCollisionEnter: function() {
+  onCollisionEnter: function () {
     this.onPicked();
   },
 
-  update: function(dt) {
+  update: function (dt) {
     this.node.x -= 5;
     if (this.node.x < -400) {
       this.node.x = 400;
